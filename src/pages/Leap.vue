@@ -32,7 +32,7 @@
                             <p class="blue">{{info.bodyText.petRoom}}</p>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 imageContainer h-100" :style=style>
-                            <img v-bind:src="info.urlDual" />
+                            <img data-aos="zoom-in" v-bind:src="info.urlDual" />
                         </div>
                     </div>
                     <div class="row common-card toggleVolume">
@@ -147,7 +147,7 @@
                                 <p>{{info.footerContent.content}}</p>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 imageContainer absContainer" >
-                                <img v-bind:src="info.footerContent.url" />
+                                <img data-aos="zoom-in" v-bind:src="info.footerContent.url" />
                             </div>
                     </div>
                     </div>

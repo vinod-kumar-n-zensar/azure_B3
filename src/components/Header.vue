@@ -38,6 +38,7 @@
 
 <script>
 import jq from 'jquery';
+import AOS from 'aos';
 export default {
     props:{
         data: Object,
@@ -60,6 +61,7 @@ export default {
 						jq('.navbar-nav li a').eq(i).addClass('active');
         }
         })
+        AOS.refresh();
       }
     },
     created () {

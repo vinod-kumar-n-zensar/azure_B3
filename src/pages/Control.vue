@@ -21,7 +21,7 @@
                         <h3>{{controlInfo.head}}</h3>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 imageContainer hidden-xs ">
-                        <img v-bind:src="controlInfo.url" alt="">
+                        <img data-aos="fade-left" v-bind:src="controlInfo.url" alt="">
                     </div>
                 </div>
                 

@@ -20,7 +20,7 @@
                         <h3>{{meetInfo.head}}</h3>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 imageContainer hidden-xs">
-                        <img v-bind:src="meetInfo.url" alt="">
+                        <img data-aos="fade-left" v-bind:src="meetInfo.url" alt="">
                     </div>
                 </div>
                 
@@ -42,7 +42,7 @@
                             <p>{{meetInfo.dataReplicate.content}}</p>
                         </div>
                         <div class="imageContainer">
-                            <img v-bind:src="meetInfo.dataReplicate.url" />
+                            <img data-aos="zoom-in" v-bind:src="meetInfo.dataReplicate.url" />
                         </div>
                 </div>
         </div>
