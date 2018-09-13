@@ -1,0 +1,481 @@
+@import 'variables.scss';
+body{
+    color: $fontColor;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.container-table {
+    height: 100%;
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+// Nav Bar
+.navbar-default .navbar-nav > li > a{
+    color: $fontColor;
+    text-align: center
+}
+.navbar-default .navbar-toggle{
+    border: none;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav li a.active{
+    color: $bgColorPrimary;
+    background: none;
+    box-shadow:none;
+}
+.navbar.navbar-default{
+    box-shadow:none;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    background: none;
+}
+.common-banner-fix{
+    background-repeat: no-repeat;
+    height:100%;
+    background-size:cover 
+}
+.font-secondary-color{
+    color: $white;
+}
+.common-page-head{
+    background: $page-head-color;
+    color:$white;
+}
+.common-banner-head{
+    color: $fontColorSecond;
+}
+.common-page-subhead{
+    background:$page-sub-head-color;
+}
+.common-div{
+    @include my-padding-mixin(50px 0)
+}
+.common-footer-color{
+    background:$footer-bg-color;
+    color: $white;
+    @include my-padding-mixin(80px 0)
+}
+.svg-inline--fa{
+    vertical-align: baseline
+}
+.field.error input,.field.error select {
+    border:1px solid $error-border-color;
+    background: $error-background-color;
+}
+select{
+    font-size: 1rem;
+}
+.border-bottom-black{
+    border-bottom: 1px solid $fontColor;
+}
+.clear{
+    clear: both;
+    float: none;
+}
+.banner h3, #SignInModal h3{
+    @include font-weight(normal)
+}
+.btnNosign{
+    background: $footer-bg-color;
+    @include border(1px,solid, $white);
+    color:$white;
+}
+.btnNosign:hover{
+    @include btn-hover($bgColorPrimary,$white)
+}
+#SignInModal .modal-content{
+    @include my-padding-mixin(0 10px)
+}
+.grey{
+    color: $faded-color;
+}
+.blue{
+    color:$bgColorPrimary;
+}
+#leap .imageContainer{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.card{
+    box-shadow: 1px 4px 7px 2px rgba(0,0,0,0.25);
+}
+.common-card-info{
+    background: $card-bg-color;
+}
+.imageContainer img{
+    width: 100%;
+}
+.common-card-info.active{
+    background: $bgColorPrimary;
+    color: $white;
+}
+.common-card-info.active h3{
+    color: $white;
+}
+.common-border-bottom{
+    border-bottom: 1px solid $white;
+}
+.common-card{
+    @include my-padding-mixin(20px 0)
+}
+.common-card-info{
+    @include my-padding-mixin(15px)
+}
+.no-padd{
+    @include my-padding-mixin(0)
+}
+.tabView .tab-content img{
+    width: 100%;
+}
+.tabView .tab-content div{
+    @include my-padding-mixin(20px 0)
+} 
+// Tab Style Starts
+#pills-tab li a{
+    padding: 10px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    z-index: 2;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    color: $fontColor
+}
+#pills-tab li a:hover,
+#pills-tab li.active a, { border: none; color: $bgColorPrimary; }
+#pills-tab li a:before{
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: $card-bg-color;
+    border: 1px solid $card-bg-color;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#pills-tab li a:after{
+    content: "";
+    width: 0;
+    height: 4px;
+    background: $bgColorPrimary;
+    border: 1px solid $bgColorPrimary;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: all 1s ease 0s;
+}
+#pills-tab li:hover a:after,
+#pills-tab li.active a:after{
+    width: 100%;
+    opacity: 1;
+}
+#pills-tab li a.active:before{
+    background: $bgColorPrimary;
+    border: 1px solid $bgColorPrimary;
+}
+ .tabView{
+     #controlTab.nav-tabs{
+        .nav-item{
+            @include my-padding-mixin(0)
+        }
+         .nav-link.active, .nav-item.active .nav-link{
+            background-color:$bgColorPrimary;
+            color: $white;
+            border: 1px solid $bgColorPrimary;
+        }
+        .nav-link{
+            color: $fontColor;
+        }
+     }
+    
+    #controlTabContent.tab-content{
+         div{
+            border: 1px solid $bgColorPrimary;
+            @include my-padding-mixin(30px)
+        }
+    }
+ } 
+// Tab Style Ends
+//Toggle View
+.common-card-info.card.active {
+    .btn{
+        background: $white;
+        color: $bgColorPrimary;
+    }
+}
+.banner{
+    h3{
+        line-height: 1.5;
+    }
+}
+// Range Container 
+.rangeContainer span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+.rangeContainer span.Higher{
+    @include bg($bgColorPrimary)
+}
+.rangeContainer span.Lower{
+    @include bg($card-bg-color)
+}
+//Footer Styles
+.link-box{
+    @include border(2px,solid,$bgColorPrimary);
+    @include bg($white);
+    @include my-padding-mixin(20px);
+    cursor: pointer;
+}
+// Animations
+
+.animate {
+    transition-delay: .1s;
+    transition-duration: .25s;
+    transition-timing-function: ease-in;
+  }
+   
+  .slide-up {
+    transform: translateY(0)
+  }
+   
+  .slide-up.animate-active {
+    transform: translateY(-100px)
+  }
+  .mktoForm{
+      display: none;
+  }
+  .commonGutSpaceBtm{
+    margin-bottom: 30px;
+  }
+  .commonGutSpaceTop{
+    margin-top: 30px;
+  }
+  .common-page-head, .common-page-subhead{
+    @include my-padding-mixin(40px 0)
+}
+.btn-primary, .btn-primary:focus, .btn-primary:hover{
+    background: $bgColorPrimary;
+    border:none;
+}
+// Small screens
+@media only screen { 
+    body{font-size: 10px;}
+    p{
+        font-size: 15px;
+    }
+} /* Define mobile styles */
+@media only screen and (max-width: 40em) {
+    // Common font size 
+    h3 {
+        font-size: 16.8px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h4{
+        font-size: 14.7px;
+    }
+    footer p{
+        font-size: 10.5px;
+    }
+    a.nav-link{
+        font-size: 16.5px;
+    }
+    .toggleVolume{
+        @include margin(20px 0 0 0)
+    }
+    .toggleVolume h2{
+        @include margin(10px 0 30px 0)
+    }
+    .common-mob-padd-fix{
+        padding-right:15px;
+        padding-left:15px;
+    }
+    .common-page-head, .common-page-subhead {
+        padding: 20px 0;
+    }
+    #cosmos {
+        li.nav-item{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+        #pills-tab li a{
+            margin-right: 0px;
+            font-weight: 600;
+        }
+    }
+    .rangeContainer {
+        display: inline;
+        width: auto;
+    }
+    footer{
+        .common-banner-fix{
+            background-position: center;
+        }
+    }
+    .footer-unlocked{
+        margin-top: 40%;
+        .copyriteText-container{
+            margin-top:20px;
+        }
+    }
+    
+ } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (min-width: 40.063em) {
+    .common-page-img-fix .common-page-subhead .imageContainer img{
+        position: absolute;
+        bottom: 4px;
+        left: -5px;
+        width: 100%;
+    }
+    .absContainer img{
+        position: static;
+    }
+    .common-page-img-fix .common-page-subhead .imageContainer img{
+        bottom: -64px;
+    }
+    #dbcosmos{
+        .link-box{
+            float: none;
+            clear: both;
+            margin: auto;
+            margin-top: 40%;
+            margin-bottom: 30px;
+        }                          
+    }
+ } /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    h1 {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    h3 {
+        font-size: 2em;
+    }
+    h4{
+        font-size: 18.75px;
+    }
+    a.nav-link{
+        font-size: 16.5px;
+    }
+    .navbar-default .navbar-nav > li > a{
+        font-size: 12px;
+        @include borderLeft;
+        @include my-padding-mixin(10px)
+    }
+    .navbar-nav {
+        margin: 7.5px -15px;
+    }
+    .absContainer img{
+        position: static;
+    }
+ } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+ @media only screen and (width : 1024px) {
+    .common-page-img-fix {
+        .common-page-subhead .imageContainer img{
+            position: absolute;
+            bottom: -26px;
+            left: -5px;
+        }
+    }
+    .navbar-default .navbar-nav > li > a {
+        font-size: 15px;
+        padding: 15px;
+    }
+    .absContainer img{
+        position: static;
+    }
+    .common-page-img-fix .common-page-subhead .imageContainer img {
+        bottom: -73px;
+    }
+}
+// Large screens
+@media only screen and (min-width: 64.063em) {
+    .navbar.navbar-default{
+        @include my-padding-mixin(5px 0)
+    } 
+    .navbar-nav li a{
+        @include borderLeft;
+        font-size: 15px;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link{
+        @include my-padding-mixin(1em 1.5em)
+    }
+    .common-page-head{
+        @include my-padding-mixin(52px 0)
+    }
+    .common-page-subhead{
+        @include my-padding-mixin(50px 0)
+    }
+    a.nav-link{
+        font-size: 16.5px;
+    }
+    h1{
+        font-weight: 700;
+    }
+    h3 {
+        font-size: 25.5px;
+    }
+    .common-card{
+        @include my-padding-mixin(40px 0)
+    }
+    .common-card-info{
+        @include my-padding-mixin(25px)
+    }
+    .absContainer img{
+        position: absolute;
+        bottom: -201px
+    }
+    .common-page-img-fix .common-page-subhead .imageContainer img{
+        position: absolute;
+        bottom: -117px;
+        left: 40px;
+    }
+    .common-page-img-fix .common-page-subhead{
+        @include my-padding-mixin(50px 0 100px 0)
+    }
+    .common-card-padd{
+        @include my-padding-mixin(50px 0)
+    }
+    footer .common-page-head h2{
+        line-height: 60px;
+    }
+    #dbcosmos .link-box{
+        float: left;
+    }
+    .leap {
+        .leapFooter {
+            @include my-padding-mixin(110px 0)
+        }
+    }
+} /* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens
+@media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) { } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+// XXLarge screens
+@media only screen and (min-width: 120.063em) { } /* min-width 1921px, xxlarge screens */
