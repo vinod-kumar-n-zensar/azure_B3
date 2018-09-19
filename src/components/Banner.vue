@@ -2,12 +2,13 @@
 <template>
 <div class="banner" :style="{height: windowHeight + 'px'}">
     <div class="header-row common-banner-fix" id="header-row" :style=style>
+        <div id="color-overlay" class="visible-xs visible-sm hidden-lg hidden-md"></div>
    <div class="container  container-table">
    <div class="vertical-center-row">
       <div class="row  justify-content-end">     
             <div class="col-lg-6 col-lg-offset-6">
                 <h1 class="common-banner-head">{{banner.data.heading}}</h1>
-                <h3>{{banner.data.body}}</h3>
+                <h3 class="no-margin">{{banner.data.body}}</h3>
             </div>
          </div>
       </div>

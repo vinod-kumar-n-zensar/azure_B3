@@ -3,10 +3,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title text-center">{{modalData.headerInfo}}</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bi-bhvr="close modal" data-bi-dlnm="close the signup modal"  data-bi-dltype="close link">
           <span aria-hidden="true">&times;</span>
         </button>
+        <h3 class="modal-title text-center">{{modalData.headerInfo}}</h3>
       </div>
       <form @submit.prevent="onSubmit">
       <div class="modal-body">
@@ -32,10 +32,16 @@
           </div>
           <div class="form-group">
              <div class="field" :class="{error: errors.has('Country')}">
-               <select class="custom-select form-control" v-validate="'required'" name="Country" v-model="Country">
-                  <option selected="selected" value="">Choose Country</option>
-                  <option v-for="CountryItem in modalData.coutryList" v-bind:value="CountryItem.name">{{CountryItem.name}}</option>
-               </select>
+                <v-select  v-model="Country"
+                  v-validate="'required'" 
+                  data-vv-value-path="mutableValue" 
+                  data-vv-name="Country" 
+                  label="name" 
+                  :options="countryData"
+                  :has-error="errors.has('Country')"
+                  :class="{'error':errors.has('Country')}"
+                  placeholder="Choose Country"
+            ></v-select>
               </div>
           </div>
            <div class="form-group">
@@ -45,19 +51,33 @@
           </div>
           <div class="form-group">
              <div class="field" :class="{error: errors.has('jobRole')}">
-               <select class="custom-select form-control" v-validate="'required'" name="jobRole" v-model="jobRole">
-                  <option selected="selected" value="">Choose Job Role</option>
-                  <option v-for="jobRole in modalData.jobRole" v-bind:value="jobRole.name">{{jobRole.name}}</option>
-               </select>
+                <v-select v-model="jobRole"
+                  v-validate="'required'" 
+                  data-vv-value-path="mutableValue" 
+                  data-vv-name="jobRole" 
+                  label="name" 
+                  :options="jobData"
+                  :has-error="errors.has('jobRole')"
+                  :class="{'error':errors.has('jobRole')}"
+                  placeholder="Choose Job Role"
+            ></v-select>
               </div>
           </div>
           <div class="">
-          <p>{{modalData.footerInfo}} <a v-bind:href="modalData.link.url" target="_blank"><span>{{modalData.link.text}}</span></a></p>
+            <div class="checkbox">
+              <label>
+                <div class="col-lg-1">
+                  <input type="checkbox" value="" id="customControlInline">
+                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                </div>
+                <p class="col-lg-11">{{modalData.footerInfo}} <a v-bind:href="modalData.link.url" target="_blank"><span>{{modalData.link.text}}</span></a></p>
+              </label>
+            </div>
         </div> 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" :disabled="errors.any()" ref="btnSubmit" class="btn btn-primary">Get Started</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bi-bhvr="close modal" data-bi-dlnm="close the signup modal"  data-bi-dltype="close link">Close</button>
+        <button type="submit" :disabled="errors.any()" ref="btnSubmit" class="btn btn-primary" data-bi-bhvr="submit modal form" data-bi-dlnm="subit data from signup modal"  data-bi-dltype="submit link">Get Started</button>
       </div>
       </form>
       <form id="mktoForm_14282"></form>
@@ -84,7 +104,9 @@ import func from "./vue-temp/vue-editor-bridge";
             Company:'',
             Country:'',
             jobRole:'',
-            signed:''
+            signed:'',
+            jobData:'',
+            countryData:''
           }
         },
         methods:{
@@ -92,12 +114,17 @@ import func from "./vue-temp/vue-editor-bridge";
             this.$validator.validateAll().then(
               result =>{
                  if (!this.errors.any()) {
-                    jq('.mktoForm  #FirstName').val(this.FirstName);
+                   jq('.mktoForm  #FirstName').val(this.FirstName);
                     jq('.mktoForm  #LastName').val(this.LastName);
                     jq('.mktoForm  #Email').val(this.Email);
                     jq('.mktoForm  #Company').val(this.Company);
-                    jq('.mktoForm  #Country option[value="' + this.Country + '"]').attr("selected", "selected");
-                    jq('.mktoForm  #Title option[value="' + this.jobRole + '"]').attr("selected", "selected");
+                    jq('.mktoForm  #Country option[value="' + this.Country.name + '"]').attr("selected", "selected");
+                    jq('.mktoForm  #Title option[value="' + this.jobRole.name + '"]').attr("selected", "selected");
+                    if(jq('#customControlInline:checked').length > 0){
+                      jq('.mktoCheckboxList input').prop('checked', true)
+                    }else{
+                      jq('.mktoCheckboxList input').prop('checked', false)
+                    }
                     jq('.mktoButton').trigger('click');
                   } else{
                     document.cookie = "signedIn = false";
@@ -122,6 +149,8 @@ import func from "./vue-temp/vue-editor-bridge";
         },
         beforeMount(){
           this.callMktoForms();
+          this.jobData = this.modalData.jobRole;
+          this.countryData = this.modalData.coutryList;
         }
     }
 </script>

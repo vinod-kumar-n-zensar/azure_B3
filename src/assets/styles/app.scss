@@ -3,6 +3,9 @@ body{
     color: $fontColor;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+h1{
+    font-size: 4rem;
+}
 .container-table {
     height: 100%;
     display: table;
@@ -56,15 +59,20 @@ body{
     color: $white;
     @include my-padding-mixin(80px 0)
 }
+.mt-auto, .my-auto {
+    margin-top: auto !important;
+}
 .svg-inline--fa{
     vertical-align: baseline
 }
-.field.error input,.field.error select {
+.field.error input,.field.error select,.v-select.searchable.error .dropdown-toggle {
     border:1px solid $error-border-color;
     background: $error-background-color;
 }
-select{
-    font-size: 1rem;
+#SignInModal{
+    select,.v-select input[type=search]:focus, .v-select.single .selected-tag, .vs__selected-options, .v-select input[type=search]{
+        font-size: 1.5rem;
+    }
 }
 .border-bottom-black{
     border-bottom: 1px solid $fontColor;
@@ -132,6 +140,55 @@ select{
 .tabView .tab-content div{
     @include my-padding-mixin(20px 0)
 } 
+.cursor-pointer{
+    cursor: pointer;
+}
+.checkbox label:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .checkbox{
+      div{
+          @include my-padding-mixin(0);
+          span.cr{
+            margin-top: 31px;
+          }
+      }
+      p{
+        @include my-padding-mixin(0)
+      }
+  }
+  .checkbox .cr {
+    position: relative;
+    display: inline-block;
+    border: 2px solid $faded-color;
+    border-radius: 0;
+    background: none;
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    margin-right: .5em;
+  }
+  
+  .checkbox .cr .cr-icon {
+    position: absolute;
+    font-size: 1.2em;
+    line-height: 0;
+    top: 50%;
+    left: 11%;
+    color: $bgColorPrimary;
+  }
+  .checkbox label input[type="checkbox"] {
+    display: none;
+  }
+  .checkbox label input[type="checkbox"]+.cr>.cr-icon {
+    opacity: 0;
+  }
+  
+  .checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
+    opacity: 1;
+  }
 // Tab Style Starts
 #pills-tab li a{
     padding: 10px;
@@ -211,8 +268,8 @@ select{
     }
 }
 .banner{
-    h3{
-        line-height: 1.5;
+    h1,h3{
+        line-height: 1.5
     }
 }
 // Range Container 
@@ -250,6 +307,9 @@ select{
   .slide-up.animate-active {
     transform: translateY(-100px)
   }
+  .no-margin{
+      margin: 0;
+  }
   .mktoForm{
       display: none;
   }
@@ -265,6 +325,26 @@ select{
 .btn-primary, .btn-primary:focus, .btn-primary:hover{
     background: $bgColorPrimary;
     border:none;
+}
+//Btn Animations
+#leap{
+    .btn-primary{
+        position: relative;
+        background: $white;
+        color: $bgColorPrimary;
+        font-size: 21px;
+        border: 2px solid $bgColorPrimary;
+    }
+.fa-arrow-right{
+    position: absolute;
+    right: 14px;
+    top: 18px;
+  }
+  .fa-arrow-left{
+    position: absolute;
+    left: 14px;
+    top: 16px;
+  }
 }
 // Small screens
 @media only screen { 
@@ -411,12 +491,18 @@ select{
 }
 // Large screens
 @media only screen and (min-width: 64.063em) {
+    .navbar-header{
+        .navbar-brand{
+            @include my-padding-mixin(10px)
+        }
+    }
     .navbar.navbar-default{
         @include my-padding-mixin(5px 0)
     } 
     .navbar-nav li a{
         @include borderLeft;
         font-size: 15px;
+        @include my-padding-mixin(15px 20px)
     }
     .navbar-expand-lg .navbar-nav .nav-link{
         @include my-padding-mixin(1em 1.5em)
@@ -467,6 +553,9 @@ select{
         .leapFooter {
             @include my-padding-mixin(110px 0)
         }
+    }
+    .modal-dialog{
+        width:500px;
     }
 } /* min-width 1025px, large screens */
 
