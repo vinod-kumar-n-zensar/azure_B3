@@ -46,7 +46,7 @@
           </div>
            <div class="form-group">
              <div class="field" :class="{error: errors.has('Company')}">
-                <input class="form-control" v-validate="'required|alpha'" name="Company" type="text" placeholder="Company" v-model="Company">
+                <input class="form-control" v-validate="'required|alpha_spaces'" name="Company" type="text" placeholder="Company" v-model="Company">
               </div>
           </div>
           <div class="form-group">

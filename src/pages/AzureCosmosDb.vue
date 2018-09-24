@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="border-bottom-black common-card-padd common-topBtm-padd">
+                    <div class="common-card-padd common-topBtm-padd">
                         <div>
                             <h3 class="blue">{{cosmosInfo.appData.title}}</h3>
                             <p>{{cosmosInfo.appData.content}}</p>
@@ -50,7 +50,7 @@
                             <a class="nav-link " v-bind:id="'pills-'+items.content.link+'-tab'" data-toggle="pill" v-bind:href="'#pills-'+items.content.link" role="tab" aria-controls="strong-home" aria-selected="true"><strong>{{items.content.title}}</strong></a>
                         </li>
                     </ul>
-                    <div class="tab-content commonGutSpaceBtm" id="pills-tabContent">
+                    <div class="tab-content" id="pills-tabContent">
                         <div v-for="(items,index) in cosmosInfo.appData.navData" class="tab-pane fade" v-bind:id="'pills-'+items.content.link" role="tabpanel" aria-labelledby="pills-strong-tab" :class="{ 'active in': index === 0 }">
                             <div class="row">
                                 <div class="col-lg-3  col-xs-12 col-sm-12 text-center">
@@ -66,11 +66,11 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="border-top-black border-bottom-black  common-div imageContainer  commonGutSpaceTop clear">
+                                    <img v-bind:src="items.content.content.url" alt="">
+                                </div>
                         </div>
                     </div>
-                    </div>
-                    <div class="border-bottom-black common-div imageContainer commonGutSpaceBtm">
-                        <img v-bind:src="cosmosInfo.appData.footer.url" alt="">
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-xs-12 col-sm-12 col-md-4">
