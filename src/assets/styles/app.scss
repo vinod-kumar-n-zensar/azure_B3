@@ -38,6 +38,15 @@ h1{
     height:100%;
     background-size:cover 
 }
+#color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlayColor;
+    opacity: 0.6;
+ }
 .font-secondary-color{
     color: $white;
 }
@@ -271,6 +280,9 @@ h1{
     }
 }
 .banner{
+    h3{
+        color: $white;
+    }
     h1,h3{
         line-height: 1.5
     }
@@ -491,9 +503,19 @@ h1{
     .common-page-img-fix .common-page-subhead .imageContainer img {
         bottom: -73px;
     }
+    .banner{
+        h3{
+            color: $fontColor;
+        }
+    }
 }
 // Large screens
 @media only screen and (min-width: 64.063em) {
+    .banner{
+        h3{
+            color: $fontColor;
+        }
+    }
     .navbar-header{
         .navbar-brand{
             @include my-padding-mixin(10px)
