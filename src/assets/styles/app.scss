@@ -6,6 +6,9 @@ body{
 h1{
     font-size: 4rem;
 }
+.mx-auto{
+    margin: auto;
+}
 .container-table {
     height: 100%;
     display: table;
@@ -33,6 +36,10 @@ h1{
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
     background: none;
 }
+.nav-tabs > li > a:hover{
+    border: transparent;
+    background: none;
+}
 .common-banner-fix{
     background-repeat: no-repeat;
     height:100%;
@@ -45,7 +52,7 @@ h1{
     width: 100%;
     height: 100%;
     background-color: $overlayColor;
-    opacity: 0.6;
+    opacity: 0.75;
  }
 .font-secondary-color{
     color: $white;
@@ -61,7 +68,7 @@ h1{
     background:$page-sub-head-color;
 }
 .common-div{
-    @include my-padding-mixin(50px 0)
+    @include my-padding-mixin(100px 0)
 }
 .common-footer-color{
     background:$footer-bg-color;
@@ -123,6 +130,8 @@ h1{
 }
 .common-card-info{
     background: $card-bg-color;
+    border-radius: 0;
+    border: 0;
 }
 .imageContainer img{
     width: 100%;
@@ -140,11 +149,18 @@ h1{
 .common-card{
     @include my-padding-mixin(20px 0)
 }
+.common-padd-btm{
+    @include my-padding-mixin(0 0 100px 0)
+}
 .common-card-info{
     @include my-padding-mixin(15px)
 }
 .no-padd{
     @include my-padding-mixin(0)
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }
 .tabView .tab-content img{
     width: 100%;
@@ -329,10 +345,10 @@ h1{
       display: none;
   }
   .commonGutSpaceBtm{
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
   .commonGutSpaceTop{
-    margin-top: 30px;
+    margin-top: 50px;
   }
   .common-page-head, .common-page-subhead{
     @include my-padding-mixin(40px 0)
@@ -340,6 +356,11 @@ h1{
 .btn-primary, .btn-primary:focus, .btn-primary:hover{
     background: $bgColorPrimary;
     border:none;
+}
+.modal-footer{
+    .btn-primary{
+        border-radius: 0;
+    }
 }
 //Btn Animations
 #leap{
@@ -349,17 +370,54 @@ h1{
         color: $bgColorPrimary;
         font-size: 21px;
         border: 2px solid $bgColorPrimary;
+        border-radius: 0;
     }
-.fa-arrow-right{
+.fa-chevron-right{
     position: absolute;
     right: 14px;
-    top: 18px;
-  }
-  .fa-arrow-left{
-    position: absolute;
-    left: 14px;
     top: 16px;
   }
+  .fa-chevron-left{
+    position: absolute;
+    left: 14px;
+    top: 14px;
+  }
+}
+.modal-body {
+    .form-control, .dropdown-toggle{
+        width: 98%;
+        border-radius: 0;
+    }
+    .field{
+        position: relative;
+    }
+    .field::before{
+        content: "*";
+        display: block;
+        position: absolute;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        font-family: Arial, Helvetica, sans-serif;
+        right: -6px;
+        top: 4px;
+        bottom: 0;
+        margin: auto 0;
+        z-index: 1;
+        line-height: normal;
+        font-size: 2em;
+        padding-top: 8px;
+        color: rgba(0, 0, 0, 0.3);
+    }
+    .v-select .vs__actions,.v-select .dropdown-toggle{
+        @include my-padding-mixin(0 5px 0 0);
+        border-radius:0;
+    }
+    .v-select input[type=search], .v-select input[type=search]:focus{
+        margin: 0;
+    }
 }
 // Small screens
 @media only screen { 
@@ -428,6 +486,29 @@ h1{
             margin-top:20px;
         }
     }
+    .common-div{
+        @include my-padding-mixin(20px 0)
+    }
+    #leap{
+        .btn-primary{
+            width:70%;
+            font-size: 16.5px;
+            .fa-chevron-right{
+                right: 11px;
+                top: 14px;
+            }
+            .fa-chevron-left{
+                left: 9px;
+                top: 13px;
+            }
+        }
+    }
+    .common-padd-btm{
+        @include my-padding-mixin(0 0 50px 0)
+    }
+    .common-page-head.common-border-bottom, footer .common-page-head{
+        @include my-padding-mixin(20px 0)
+    }
     
  } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
@@ -453,6 +534,24 @@ h1{
             margin-top: 40%;
             margin-bottom: 30px;
         }                          
+    }
+    .common-padd-btm{
+        @include my-padding-mixin(0 0 100px 0)
+    }
+    .common-page-head.common-border-bottom, footer .common-page-head{
+        @include my-padding-mixin(50px 0)
+    }
+    .common-div{
+        @include my-padding-mixin(100px 0)
+    }
+    #leap{
+        .btn-primary{
+            width: 40%;
+            .fa-chevron-right{
+                right: 14px;
+                top: 15px;
+            }
+        }
     }
  } /* min-width 641px, medium screens */
 
@@ -566,7 +665,7 @@ h1{
         @include my-padding-mixin(50px 0 100px 0)
     }
     .common-card-padd{
-        @include my-padding-mixin(50px 0)
+        @include my-padding-mixin(100px 0)
     }
     footer .common-page-head h2{
         line-height: 60px;

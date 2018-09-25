@@ -29,8 +29,8 @@
                     <div class="container h-100">
                         <div class="row align-items-center h-100 footer-unlocked">
                             <div class="col db-link-box col-sm-12">
-                                <div class="text-center">
-                                    <div class="link-box col-lg-6 col-sm-8" @click="redirectPage(info.signed.BtnText.url)">
+                                <div class="text-left">
+                                    <div class="link-box col-lg-5 col-sm-8" @click="redirectPage(info.signed.BtnText.url)">
                                         <h1 class="blue">{{info.signed.BtnText.head}}</h1>
                                         <h3 class="blue">{{info.signed.BtnText.footer}}</h3>
                                     </div>

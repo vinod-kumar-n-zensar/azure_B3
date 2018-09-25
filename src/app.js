@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap-theme.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './assets/styles/app.scss';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLock,faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faLock,faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VeeValidate from 'vee-validate'    
 import  VueScrollTo from 'vue-scrollto';
@@ -20,14 +20,14 @@ Vue.use(VueMatchHeights, {
 });
 Vue.use(VueScrollTo)
 Vue.use(VeeValidate);
-library.add(faLock,faArrowRight, faArrowLeft)
+library.add(faLock,faChevronRight, faChevronLeft)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('v-select', vSelect)
 new Vue({
   created(){
     AOS.init({
       easing: 'ease-in-out-sine',
-      duration: 1200,
+      duration: 600,
     });
   },
   el: '#app',

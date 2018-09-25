@@ -45,7 +45,7 @@
                             <h3 class="blue">{{cosmosInfo.appData.title}}</h3>
                             <p>{{cosmosInfo.appData.content}}</p>
                         </div>
-                        <ul class="nav nav-pills mb-3 nav-fill commonGutSpaceBtm" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills nav-fill commonGutSpaceBtm" id="pills-tab" role="tablist">
                         <li class="nav-item" v-for="(items,index) in cosmosInfo.appData.navData" :class="{ 'active': index === 0 }">
                             <a class="nav-link " v-bind:id="'pills-'+items.content.link+'-tab'" data-toggle="pill" v-bind:href="'#pills-'+items.content.link" role="tab" aria-controls="strong-home" aria-selected="true"><strong>{{items.content.title}}</strong></a>
                         </li>

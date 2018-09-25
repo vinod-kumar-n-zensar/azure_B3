@@ -36,8 +36,8 @@
                             </div>
                     </div>
                 </div>
-                <div class="container commonGutSpaceTop">
-                        <div class="common-topBtm-padd">
+                <div class="container">
+                        <div class="common-div">
                             <h3 class="blue">{{meetInfo.dataReplicate.title}}</h3>
                             <p>{{meetInfo.dataReplicate.content}}</p>
                         </div>
